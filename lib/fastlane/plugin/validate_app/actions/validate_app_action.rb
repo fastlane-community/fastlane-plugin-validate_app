@@ -10,7 +10,9 @@ module Fastlane
         xcode_contents_path = `dirname "$(xcode-select --print-path)"`.strip
         altool = "#{xcode_contents_path}/Applications/Application Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Support/altool".shellescape
 
-        UI.message("Validating your app. This may take a while.")
+        ipa = params[:ipa].to_s.shellescape
+
+        UI.message("Validating #{ipa}. This may take a while.")
 
         password = "@env:DELIVER_PASSWORD" if ENV["DELIVER_PASSWORD"].to_s.length > 0
         password = "@env:FASTLANE_PASSWORD" if ENV["FASTLANE_PASSWORD"].to_s.length > 0
@@ -22,7 +24,7 @@ module Fastlane
         command = [altool]
         command << "--validate-app"
         command << "--file"
-        command << params[:ipa].to_s.shellescape
+        command << ipa
         command << "--username #{params[:username]}"
         command << "--password"
         command << password
@@ -31,8 +33,8 @@ module Fastlane
         plist = Plist.parse_xml(`#{command.join(' ')}`)
         errors = plist["product-errors"]
 
-        if errors.empty?
-          UI.success("Build is valid. Ready to be uploaded to iTunes Connect!")
+        if errors.nil?
+          UI.success("IPA file is valid. Ready to be uploaded to iTunes Connect!")
           return nil
         end
 
