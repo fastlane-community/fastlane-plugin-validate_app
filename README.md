@@ -1,6 +1,7 @@
 # validate_app plugin
 
 [![fastlane Plugin Badge](https://rawcdn.githack.com/fastlane/fastlane/master/fastlane/assets/plugin-badge.svg)](https://rubygems.org/gems/fastlane-plugin-validate_app)
+[![CircleCI](https://circleci.com/gh/thii/fastlane-plugin-validate_app.svg?style=svg)](https://circleci.com/gh/thii/fastlane-plugin-validate_app)
 
 ## Getting Started
 
