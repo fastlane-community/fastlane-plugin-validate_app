@@ -21,7 +21,7 @@ Appfile and password from yoru Keychain. You may specify a password directly or
 pass it via `FASTLANE_PASSWORD` or `DELIVER_PASSWORD` environment variables.
 Your password will not be printed out to build console log.
 
-Returns an empty array if build is valid, and an array of error objects if
+Returns `nil` if build is valid, and an array of error objects if
 build is invalid
 
 ## Example
@@ -31,7 +31,7 @@ errors = validate_app(
   ipa: "YourApp.ipa"
 )
 
-if errors.empty?
+if errors.nil?
   upload_to_testflight
 else
   UI.user_error! "IPA file did not pass validation."

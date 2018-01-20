@@ -33,7 +33,7 @@ module Fastlane
 
         if errors.empty?
           UI.success("Build is valid. Ready to be uploaded to iTunes Connect!")
-          return []
+          return nil
         end
 
         errors.each do |error|
@@ -52,7 +52,7 @@ module Fastlane
       end
 
       def self.return_value
-        "Returns an empty array if build is valid, and an array of error objects if build is invalid"
+        "Returns nil if build is valid, and an array of error objects if build is invalid"
       end
 
       def self.details
