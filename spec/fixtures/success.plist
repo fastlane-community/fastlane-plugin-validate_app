@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+<key>dev-tools-info</key>
+<dict>
+<key>platforms</key>
+<dict>
+<key>iPhoneOS.platform</key>
+<dict>
+<key>paths</key>
+<array>
+<string>/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/usr/bin</string>
+<string>/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin</string>
+<string>/Applications/Xcode.app/Contents/Developer/usr/bin</string>
+<string>/usr/local/bin</string>
+<string>/usr/bin</string>
+<string>/bin</string>
+<string>/usr/sbin</string>
+<string>/sbin</string>
+<string>/Applications/Xcode.app/Contents/Applications/Application Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Resources</string>
+</array>
+</dict>
+</dict>
+<key>search-method</key>
+<integer>1</integer>
+<key>search-method-string</key>
+<string>Enclosing Xcode</string>
+<key>xcode-info</key>
+<dict>
+<key>path</key>
+<string>/Applications/Xcode.app/Contents/Developer</string>
+<key>version.plist</key>
+<dict>
+<key>BuildAliasOf</key>
+<string>IDEFrameworks</string>
+<key>BuildVersion</key>
+<string>2</string>
+<key>CFBundleShortVersionString</key>
+<string>9.2</string>
+<key>CFBundleVersion</key>
+<string>13772</string>
+<key>ProductBuildVersion</key>
+<string>9C40b</string>
+<key>ProjectName</key>
+<string>IDEFrameworks</string>
+<key>SourceVersion</key>
+<string>13772000000000000</string>
+</dict>
+</dict>
+</dict>
+<key>os-version</key>
+<string>10.13.2</string>
+<key>success-message</key>
+<string>No errors validating archive at /YourApp.ipa</string>
+<key>tool-path</key>
+<string>/Applications/Xcode.app/Contents/Applications/Application Loader.app/Contents/Frameworks/ITunesSoftwareService.framework</string>
+<key>tool-version</key>
+<string>1.9.784</string>
+</dict>
+</plist>
