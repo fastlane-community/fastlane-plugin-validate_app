@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+<key>dev-tools-info</key>
+<dict>
+<key>search-method</key>
+<integer>-1</integer>
+</dict>
+<key>os-version</key>
+<string>10.13.2</string>
+<key>product-errors</key>
+<array>
+<dict>
+<key>code</key>
+<integer>1091</integer>
+<key>message</key>
+<string>Redundant Binary Upload. There already exists a binary upload with build '999' for version '1.0'</string>
+<key>userInfo</key>
+<dict>
+<key>NSLocalizedDescription</key>
+<string>Redundant Binary Upload. There already exists a binary upload with build '999' for version '1.0'</string>
+<key>NSLocalizedFailureReason</key>
+<string>iTunes Store operation failed.</string>
+<key>NSLocalizedRecoverySuggestion</key>
+<string>Redundant Binary Upload. There already exists a binary upload with build '999' for version '1.0'</string>
+</dict>
+</dict>
+</array>
+<key>tool-path</key>
+<string>/Applications/Xcode.app/Contents/Applications/Application Loader.app/Contents/Frameworks/ITunesSoftwareService.framework</string>
+<key>tool-version</key>
+<string>1.9.784</string>
+</dict>
+</plist>

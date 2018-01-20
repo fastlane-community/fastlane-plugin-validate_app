@@ -1,0 +1,3 @@
+lane :test do
+  validate_app(ipa: "App.ipa")
+end
