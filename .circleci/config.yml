@@ -48,14 +48,11 @@ jobs:
     working_directory: ~/repo
     steps:
       - run:
-          name: build gem
-          command: mkdir -p ~/gem && echo "---\n:rubygems_api_key: $RUBYGEMS_API_KEY" > ~/.gem/credentials
-      - run:
-          name: build gem
-          command: gem build *.gemspec
-      - run:
           name: deploy gem
-          command: gem publish *.gem
+          command: |
+            mkdir -p ~/gem echo "---\n:rubygems_api_key: $RUBYGEMS_API_KEY" > ~/.gem/credentials
+            gem build *.gemspec
+            gem publish *.gem
 
 workflows:
   version: 2
