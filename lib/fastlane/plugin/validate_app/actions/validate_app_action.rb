@@ -16,7 +16,7 @@ module Fastlane
         username = params[:username]
         ENV["VALIDATE_APP_PASSWORD"] = ENV["DELIVER_PASSWORD"] if ENV["DELIVER_PASSWORD"].to_s.length > 0
         ENV["VALIDATE_APP_PASSWORD"] = ENV["FASTLANE_PASSWORD"] if ENV["FASTLANE_PASSWORD"].to_s.length > 0
-        ENV["VALIDATE_APP_PASSWORD"] = self.fetch_password_from_keychain if ENV["VALIDATE_APP_PASSWORD"].to_s.length > 0
+        ENV["VALIDATE_APP_PASSWORD"] = self.fetch_password_from_keychain if ENV["VALIDATE_APP_PASSWORD"].to_s.length == 0
         password = "@env:VALIDATE_APP_PASSWORD"
 
         command = [altool]
