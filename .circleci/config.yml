@@ -50,7 +50,8 @@ jobs:
       - run:
           name: Publishing gem
           command: |
-            mkdir -p ~/.gem echo "---\n:rubygems_api_key: $RUBYGEMS_API_KEY" > ~/.gem/credentials
+            mkdir -p ~/.gem
+            echo "---\n:rubygems_api_key: $RUBYGEMS_API_KEY" > ~/.gem/credentials
             gem build *.gemspec
             gem publish *.gem
 
