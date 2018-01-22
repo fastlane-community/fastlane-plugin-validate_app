@@ -7,25 +7,23 @@ module Fastlane
       def self.run(params)
         require 'plist'
 
+        UI.message("Validating #{ipa}. This may take a while.")
+
         xcode_contents_path = `dirname "$(xcode-select --print-path)"`.strip
         altool = "#{xcode_contents_path}/Applications/Application Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Support/altool".shellescape
 
         ipa = params[:ipa].to_s.shellescape
-
-        UI.message("Validating #{ipa}. This may take a while.")
-
+        username = params[:username]
         password = "@env:DELIVER_PASSWORD" if ENV["DELIVER_PASSWORD"].to_s.length > 0
         password = "@env:FASTLANE_PASSWORD" if ENV["FASTLANE_PASSWORD"].to_s.length > 0
-
-        if password.to_s.empty?
-          password = self.fetch_password_from_keychain
-        end
+        password = self.fetch_password_from_keychain if password.to_s.empty?
 
         command = [altool]
         command << "--validate-app"
         command << "--file"
         command << ipa
-        command << "--username #{params[:username]}"
+        command << "--username"
+        command << username
         command << "--password"
         command << password
         command << "--output-format xml"
