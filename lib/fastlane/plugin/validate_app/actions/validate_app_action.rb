@@ -14,13 +14,10 @@ module Fastlane
 
         ipa = params[:ipa].to_s.shellescape
         username = params[:username]
-        password = "@env:DELIVER_PASSWORD" if ENV["DELIVER_PASSWORD"].to_s.length > 0
-        password = "@env:FASTLANE_PASSWORD" if ENV["FASTLANE_PASSWORD"].to_s.length > 0
-
-        if password.to_s.empty?
-          ENV["VALIDATE_APP_PASSWORD"] = self.fetch_password_from_keychain
-          password = "@env:VALIDATE_APP_PASSWORD"
-        end
+        ENV["VALIDATE_APP_PASSWORD"] = ENV["DELIVER_PASSWORD"] if ENV["DELIVER_PASSWORD"].to_s.length > 0
+        ENV["VALIDATE_APP_PASSWORD"] = ENV["FASTLANE_PASSWORD"] if ENV["FASTLANE_PASSWORD"].to_s.length > 0
+        ENV["VALIDATE_APP_PASSWORD"] = self.fetch_password_from_keychain if ENV["VALIDATE_APP_PASSWORD"].to_s.length > 0
+        password = "@env:VALIDATE_APP_PASSWORD"
 
         command = [altool]
         command << "--validate-app"
