@@ -32,7 +32,7 @@ module Fastlane
         errors = plist["product-errors"]
 
         if errors.nil?
-          UI.success("IPA file is valid. Ready to be uploaded to iTunes Connect!")
+          UI.success(plist["success-message"])
           return nil
         end
 
