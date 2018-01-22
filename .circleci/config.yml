@@ -22,7 +22,7 @@ jobs:
           - v1-dependencies-
 
       - run:
-          name: install dependencies
+          name: Installing dependencies
           command: bundle check || bundle install --jobs=4 --retry=3 --path vendor/bundle
 
       - save_cache:
@@ -32,7 +32,7 @@ jobs:
 
       # run tests!
       - run:
-          name: run tests
+          name: Running tests
           command: bundle exec rake
 
       # collect reports
@@ -48,7 +48,7 @@ jobs:
     working_directory: ~/repo
     steps:
       - run:
-          name: deploy gem
+          name: Publishing gem
           command: |
             mkdir -p ~/gem echo "---\n:rubygems_api_key: $RUBYGEMS_API_KEY" > ~/.gem/credentials
             gem build *.gemspec
