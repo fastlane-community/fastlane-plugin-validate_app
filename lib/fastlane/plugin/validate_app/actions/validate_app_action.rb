@@ -29,7 +29,7 @@ module Fastlane
         command << password
         command << "--output-format xml"
 
-        result = Actions.sh(command.join(' ')
+        result = Actions.sh(command.join(' '))
         plist = Plist.parse_xml(result)
         errors = plist["product-errors"]
 
