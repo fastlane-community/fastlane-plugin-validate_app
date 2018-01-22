@@ -14,9 +14,8 @@ module Fastlane
 
         ipa = params[:ipa].to_s.shellescape
         username = params[:username]
-        password = "@env:DELIVER_PASSWORD" if ENV["DELIVER_PASSWORD"].to_s.length > 0
-        password = "@env:FASTLANE_PASSWORD" if ENV["FASTLANE_PASSWORD"].to_s.length > 0
-        password = self.fetch_password_from_keychain if password.to_s.empty?
+        ENV["VALIDATE_APP_PASSWORD"] = ENV["FASTLANE_PASSWORD"] || ENV["DELIVER_PASSWORD"] || self.fetch_password_from_keychain
+        password = "@env:VALIDATE_APP_PASSWORD"
 
         command = [altool]
         command << "--validate-app"
@@ -28,7 +27,8 @@ module Fastlane
         command << password
         command << "--output-format xml"
 
-        plist = Plist.parse_xml(`#{command.join(' ')}`)
+        result = Actions.sh(command.join(' '))
+        plist = Plist.parse_xml(result)
         errors = plist["product-errors"]
 
         if errors.nil?
