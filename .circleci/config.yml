@@ -67,6 +67,8 @@ workflows:
 
       # Deploy no branches and all tags
       - deploy:
+          requires:
+            - build
           filters:
             tags:
               only: /.*/
