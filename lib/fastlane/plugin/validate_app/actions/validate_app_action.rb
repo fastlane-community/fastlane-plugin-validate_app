@@ -82,7 +82,7 @@ module Fastlane
                                        description: "Path to the ipa file to validate",
                                        is_string: true,
                                        default_value: Dir["*.ipa"].sort_by { |x| File.mtime(x) }.last,
-                                       optional: false,
+                                       optional: true,
                                        verify_block: proc do |value|
                                          value = File.expand_path(value)
                                          UI.user_error!("could not find ipa file at path '#{value}'") unless File.exist?(value)
@@ -94,7 +94,7 @@ module Fastlane
                                        description: "Your Apple ID username",
                                        is_string: true,
                                        default_value: @user,
-                                       optional: false)
+                                       optional: true)
         ]
       end
 
