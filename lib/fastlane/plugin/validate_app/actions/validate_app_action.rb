@@ -10,7 +10,7 @@ module Fastlane
         xcode_contents_path = `dirname "$(xcode-select --print-path)"`.strip
         altool = "#{xcode_contents_path}/Applications/Application Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Support/altool".shellescape
 
-        ENV["VALIDATE_APP_PASSWORD"] = ENV["FASTLANE_PASSWORD"] || ENV["DELIVER_PASSWORD"] || self.fetch_password_from_keychain
+        ENV["VALIDATE_APP_PASSWORD"] = ENV["ALTOOL_2FA_PASSWORD"] || ENV["FASTLANE_PASSWORD"] || ENV["DELIVER_PASSWORD"] || self.fetch_password_from_keychain
 
         ipa = params[:ipa].to_s.shellescape
         username = params[:username]
