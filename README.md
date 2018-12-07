@@ -18,7 +18,10 @@ fastlane add_plugin validate_app
 This plugin validates your ipa file using Application Loader's command line
 tool `altool`. By default, it will take your Apple ID username from your
 Appfile and password from yoru Keychain. You may specify a password directly or
-pass it via `FASTLANE_PASSWORD` or `DELIVER_PASSWORD` environment variables.
+pass it via `FASTLANE_PASSWORD` or `DELIVER_PASSWORD` environment variables. 
+If you use 2 factor authentication, you may specify the application specific 
+password for the Application Loader tool via `ALTOOL_2FA_PASSWORD`. This will 
+take precedence over your Apple ID's password. 
 Your password will not be printed out to build console log.
 
 Returns `nil` if build is valid, and an array of error objects if
