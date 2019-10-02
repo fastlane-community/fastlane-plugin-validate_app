@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.author        = 'Thi'
 
   spec.summary       = 'Validate your build before uploading to iTunes Connect'
-  spec.homepage      = "https://github.com/thii/fastlane-plugin-validate_app"
+  spec.homepage      = "https://github.com/fastlane-community/fastlane-plugin-validate_app"
   spec.license       = "MIT"
 
   spec.files         = Dir["lib/**/*"] + %w(README.md LICENSE)
