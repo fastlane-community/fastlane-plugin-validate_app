@@ -7,9 +7,6 @@ module Fastlane
       def self.run(params)
         require 'plist'
 
-        xcode_contents_path = `dirname "$(xcode-select --print-path)"`.strip
-        altool = "#{xcode_contents_path}/Applications/Application Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Support/altool".shellescape
-
         ENV["VALIDATE_APP_PASSWORD"] = ENV["ALTOOL_2FA_PASSWORD"] || ENV["FASTLANE_PASSWORD"] || ENV["DELIVER_PASSWORD"] || self.fetch_password_from_keychain
 
         ipa = params[:ipa].to_s.shellescape
@@ -18,7 +15,7 @@ module Fastlane
 
         UI.message("Validating #{ipa}. This may take a while.")
 
-        command = [altool]
+        command = ["xcrun", "altool"]
         command << "--validate-app"
         command << "--file"
         command << ipa
